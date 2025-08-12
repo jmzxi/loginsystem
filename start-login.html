@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Log In</title>
+  <link rel="stylesheet" href="css/start-login.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="login-box">
+      <div class="left-panel">
+        <div class="icon">&#10140;</div>
+        <h2>Welcome to Login</h2>
+      </div>
+      <div class="right-panel">
+        <h3>Login</h3>
+        <h3 class="small-screen-message">Welcome to Login</h3>
+        <form action="php/login.php" method="POST">
+          <label for="username">Username*</label>
+          <div class="input-box">
+            <span class="icon">&#128100;</span>
+            <input type="text" id="username" name="username" placeholder="Enter Username" required />
+          </div>
+
+          <label for="password">Password*</label>
+          <div class="input-box">
+            <span class="icon">&#128274;</span>
+            <input type="password" id="password" name="password" placeholder="Enter Password" required />
+          </div>
+
+          <div class="options">
+            <label><input type="checkbox" name="remember" /> Remember me</label>
+            <a href="forgot-password.html">Forgot Password?</a>
+          </div>
+
+          <button type="submit" class="login-btn">Login</button>
+
+          <p class="or" style="text-align: center;">or</p>
+
+          <a href="php/google_verify.php" class="google-btn">
+            <span class="google-img"><img src="img/google-logo.png" alt=""></span>
+            Login with Google
+          </a>
+
+          <p class="register-form">Don't have an account? <a class="reg-form" href="reg-form.html">Register here</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

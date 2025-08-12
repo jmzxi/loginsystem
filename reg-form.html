@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register</title>
+  <link rel="stylesheet" href="css/reg-form.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="reg-box">
+      <div class="left-panel">
+        <div class="icon">&#10140;</div>
+        <h2>Register your account</h2>
+      </div>
+      <div class="right-panel">
+        <h3>Register</h3>
+        <h3 class="small-screen-message">Register your account</h3>
+        <form action="php/register.php" method="POST">
+          <label for="username">Username*</label>
+          <div class="input-box">
+            <span class="icon">&#128100;</span>
+            <input type="text" id="username" placeholder="Enter Username" required />
+          </div>
+
+          <!-- Email with OTP Button -->
+<label for="email">Email*</label>
+  <div class="input-box">
+    <span class="icon">&#128231;</span>
+    <input type="email" id="email" placeholder="Enter Email" required />
+    <button type="button" class="otp-btn" style="background-color: #e50914;
+  color: white;
+  cursor: pointer;
+  padding: 0.2px 5px 0.2px 5px;
+  border-radius: 4px;
+  font-size: 14px;">Send OTP</button>
+  </div>
+  
+
+<!-- OTP Input Field -->
+<label for="otp">OTP*</label>
+<div class="input-box">
+  <span class="icon">&#128273;</span>
+  <input type="text" id="otp" maxlength="6" placeholder="Enter 6-digit OTP" required />
+</div>
+
+
+          <label for="password">Password*</label>
+          <div class="input-box">
+            <span class="icon">&#128274;</span>
+            <input type="password" id="password" placeholder="Enter Password" required />
+          </div>
+
+
+          <button type="submit" class="create-btn" href="start-login.html">Create Account</button>
+          <p class="or" style="text-align: center;">or</p>
+          <button type="button" class="google-btn" ><span class="google-img"><img src="img/google-logo.png" alt=""></span>Continue with Google</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
