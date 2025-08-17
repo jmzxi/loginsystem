@@ -1,0 +1,136 @@
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  background: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+/* Container & Panel */
+.container {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.reg-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.right-panel {
+  width: 100%;
+  padding: 40px 30px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.desktop-title {
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.small-screen-message {
+  display: none;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+/* Form Elements */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.input-box input  {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding-left: 8px;
+  font-size: 14px;
+}
+
+.icon {
+  margin-right: 8px;
+  color: gray;
+}
+
+/* Buttons */
+.create-btn,
+.google-signin-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 10px 0 5px;
+  border: none;
+}
+
+.create-btn {
+  background-color: #e50914;
+  color: white;
+}
+
+.create-btn:hover {
+  background-color: #c40811;
+}
+
+.google-signin-btn {
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid #ccc;
+}
+
+.google-signin-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.google-signin-btn img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* Divider text */
+.or {
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .desktop-title {
+    display: none;
+  }
+
+  .small-screen-message {
+    display: block;
+  }
+}
