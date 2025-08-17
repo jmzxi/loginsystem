@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 $username = trim($_POST['username'] ?? '');
 $password = $_POST['password'] ?? '';
-$remember = isset($_POST['remember_me']);  // <-- fix here
+$remember = isset($_POST['remember']);  // <-- fix here
 
 if (!$username || !$password) {
     jsonResponse(false, "Username and password required.");
@@ -65,7 +65,7 @@ if ($remember) {
 }
 
 // For normal form submit flow, redirect after login
-header("Location: ../main-page.html");
+header("Location: ./main-page.html");
 exit;
 
 // OR for AJAX call:

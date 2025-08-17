@@ -1,7 +1,6 @@
 <?php
 // google_verify.php
 require_once 'helpers.php';
-
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -13,16 +12,26 @@ if (!$id_token) {
     jsonResponse(false, "Missing Google ID token.");
 }
 
+// The database connection is now available via helpers.php -> config.php
+global $pdo; // Make the PDO object from config.php available here
+
 $CLIENT_ID = GOOGLE_CLIENT_ID;
 
-$google_url = "https://oauth2.googleapis.com/tokeninfo?id_token=" . urlencode($id_token);
-$response = file_get_contents($google_url);
+// Use cURL for a more robust way to make HTTP requests
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, "https://oauth2.googleapis.com/tokeninfo?id_token=" . urlencode($id_token));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);
+curl_close($ch);
+
 if ($response === false) {
-    jsonResponse(false, "Failed to verify token.");
+    jsonResponse(false, "Failed to verify token. Could not connect to Google.");
 }
 
 $tokenInfo = json_decode($response, true);
 if (!isset($tokenInfo['aud']) || $tokenInfo['aud'] !== $CLIENT_ID) {
+    // Log the received and expected AUD for debugging
+    error_log("Token AUD mismatch. Received: " . ($tokenInfo['aud'] ?? 'N/A') . ", Expected: " . $CLIENT_ID);
     jsonResponse(false, "Token audience mismatch.");
 }
 

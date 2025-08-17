@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Register</title>
   <link rel="stylesheet" href="css/reg-form.css"/>
+  <!-- Google Sign-in library -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <!-- Custom JavaScript for Google Sign-in -->
+  <script src="js/google-signin.js" defer></script>
 </head>
 <body>
   <div class="container">
@@ -20,42 +24,54 @@
           <label for="username">Username*</label>
           <div class="input-box">
             <span class="icon">&#128100;</span>
-            <input type="text" id="username" placeholder="Enter Username" required />
+            <input type="text" id="username" name="username" placeholder="Enter Username" required />
           </div>
 
           <!-- Email with OTP Button -->
-<label for="email">Email*</label>
-  <div class="input-box">
-    <span class="icon">&#128231;</span>
-    <input type="email" id="email" placeholder="Enter Email" required />
-    <button type="button" class="otp-btn" style="background-color: #e50914;
+          <label for="email">Email*</label>
+          <div class="input-box">
+            <span class="icon">&#128231;</span>
+            <input type="email" id="email" name="email" placeholder="Enter Email" required />
+            <button type="button" class="otp-btn" style="background-color: #e50914;
   color: white;
   cursor: pointer;
   padding: 0.2px 5px 0.2px 5px;
   border-radius: 4px;
   font-size: 14px;">Send OTP</button>
-  </div>
+          </div>
   
 
-<!-- OTP Input Field -->
-<label for="otp">OTP*</label>
-<div class="input-box">
-  <span class="icon">&#128273;</span>
-  <input type="text" id="otp" maxlength="6" placeholder="Enter 6-digit OTP" required />
-</div>
+          <!-- OTP Input Field -->
+          <label for="otp">OTP*</label>
+          <div class="input-box">
+            <span class="icon">&#128273;</span>
+            <input type="text" id="otp" name="otp" maxlength="6" placeholder="Enter 6-digit OTP" required />
+          </div>
 
 
           <label for="password">Password*</label>
           <div class="input-box">
             <span class="icon">&#128274;</span>
-            <input type="password" id="password" placeholder="Enter Password" required />
+            <input type="password" id="password" name="password" placeholder="Enter Password" required />
           </div>
 
 
-          <button type="submit" class="create-btn" href="start-login.html">Create Account</button>
+          <button type="submit" class="create-btn">Create Account</button>
           <p class="or" style="text-align: center;">or</p>
-          <button type="button" class="google-btn" ><span class="google-img"><img src="img/google-logo.png" alt=""></span>Continue with Google</button>
-
+          <!-- Google Sign-in button container -->
+          <div id="g_id_onload"
+     data-client_id="249797953171-pb9bredsq366f2p85n0d3fl5ki3hpmqh.apps.googleusercontent.com"
+     data-callback="handleCredentialResponse"
+     data-auto_prompt="false">
+</div>
+<div class="g_id_signin"
+     data-type="standard"
+     data-size="large"
+     data-theme="outline"
+     data-text="sign_in_with"
+     data-shape="rectangular"
+     data-logo_alignment="left">
+</div>
         </form>
       </div>
     </div>
